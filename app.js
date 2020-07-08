@@ -5,6 +5,7 @@ const todoList = document.querySelector(".todo-list");
 
 //Event Listeners
 todoButton.addEventListener("click", addTodo);
+todoList.addEventListener("click", deleteCheck);
 
 // Functions
 function addTodo(e) {
@@ -17,7 +18,7 @@ function addTodo(e) {
 
 	//Create LI
 	const newTodo = document.createElement("li");
-	newTodo.innerText = "hey";
+	newTodo.innerText = todoInput.value;
 	newTodo.classList.add("todo-item");
 	todoDiv.appendChild(newTodo);
 
@@ -30,9 +31,23 @@ function addTodo(e) {
 	//Trash Button
 	const trashButton = document.createElement("button");
 	trashButton.innerHTML = '<i class="fas fa-trash"></i>';
-	trashButton.classList.add("completed-btn");
+	trashButton.classList.add("trash-btn");
 	todoDiv.appendChild(trashButton);
 
 	//Append to list
 	todoList.appendChild(todoDiv);
+
+	//Clear Todo input value
+	todoInput.value = "";
 }
+
+function deleteCheck(e) {
+	const item = e.target;
+
+	// Delete Todo
+	if (item.classList[0] === "trash-btn") {
+	}
+}
+
+//Video Paused at:
+//https://youtu.be/Ttf3CEsEwMQ?t=2124
